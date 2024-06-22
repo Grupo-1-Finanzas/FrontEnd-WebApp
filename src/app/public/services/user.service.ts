@@ -3,6 +3,7 @@ import {BaseService} from "../../shared/services/base.service";
 import {HttpClient} from "@angular/common/http";
 
 import {UserModel} from "../models/user.model";
+import {FormControl, ɵValue} from "@angular/forms";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,11 @@ export class UserService extends BaseService<UserModel>{
   }
 
   // buscar por email y password
-  findByEmailAndPassword(email: string, password: string){
-    return this._http.get<any>(`${this.resourcePath()}/?email=${email}&password=${password}`);
+  findByEmail(email: string){
+    return this._http.get<any>(`${this.resourcePath()}/?email=${email}`);
+  }
+  // buscar por dni
+  findByDni(dni: ɵValue<FormControl<string | null>> | undefined){
+    return this._http.get<any>(`${this.resourcePath()}/?dni=${dni}`);
   }
 }

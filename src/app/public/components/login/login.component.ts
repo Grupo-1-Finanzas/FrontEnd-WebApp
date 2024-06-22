@@ -4,12 +4,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import {FormsModule} from "@angular/forms";
 import {UserModel} from "../../models/user.model";
+import {RouterLink} from "@angular/router";
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
@@ -31,7 +33,6 @@ export class LoginComponent implements OnInit {
     event.preventDefault();
     if (this.loginForm.valid) {
       const formValue = this.loginForm.value;
-      this.submittedData = new UserModel('', formValue.email, formValue.password);
     }
   }
 }

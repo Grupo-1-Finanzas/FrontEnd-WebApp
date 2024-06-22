@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "dni": "12345678",
+      "name": "John Doe",
+      "birth": "1980-01-01",
+      "email": "john.doe@example.com",
+      "user": "johndoe",
+      "password": "password1"
+    },
+    {
+      "id": 2,
+      "dni": "23456789",
+      "name": "Jane Smith",
+      "birth": "1985-02-02",
+      "email": "jane.smith@example.com",
+      "user": "janesmith",
+      "password": "password2"
+    },
+    {
+      "id": 3,
+      "dni": "34567890",
+      "name": "Bob Johnson",
+      "birth": "1990-03-03",
+      "email": "bob.johnson@example.com",
+      "user": "bobjohnson",
+      "password": "password3"
+    },
+    {
+      "id": 4,
+      "dni": "45678901",
+      "name": "Alice Williams",
+      "birth": "1995-04-04",
+      "email": "alice.williams@example.com",
+      "user": "alicewilliams",
+      "password": "password4"
+    },
+    {
+      "id": 5,
+      "dni": "56789012",
+      "name": "Charlie Brown",
+      "birth": "2000-05-05",
+      "email": "charlie.brown@example.com",
+      "user": "charliebrown",
+      "password": "password5"
+    }
+  ]
+}

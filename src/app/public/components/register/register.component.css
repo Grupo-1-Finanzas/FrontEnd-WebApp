@@ -1,0 +1,91 @@
+.register-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #003452;
+}
+
+.title{
+  font-size: 38px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.title h1{
+  margin: 0;
+}
+
+.register-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80vh;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 20px 10px rgba(0, 0, 0, 0.24);
+  background: #fff;
+}
+
+.register-form{
+  display: flex;
+  width: 100%;
+}
+
+.register-form-colum{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.error {
+  color: red;
+  font-size: 11px;
+  margin-top: 2px;
+  top: 82%;
+  position: absolute;
+  display: block;
+}
+
+.register-form form{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input{
+  position: relative;
+  width: 80%;
+  display: flex;
+  padding: 10px 0;
+  flex-direction: column;
+}
+
+.input input{
+  height: 40px;
+  border-radius: 10px;
+  background-color: #EEEEEE;
+  border-color: #0FD80B;
+}
+
+.register-button{
+  background-color: #0FD80B;
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #005243; /* Change this to the color you want when hovering */
+}
+
+label {
+  font-size: 18px;
+}

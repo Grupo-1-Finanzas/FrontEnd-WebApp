@@ -1,1 +1,143 @@
-<p>operation works!</p>
+<form [formGroup]="operationForm" (ngSubmit)="onSubmit()" class="operation-form">
+  <mat-card appearance="outlined" class="card-operation">
+    <mat-card-content class="card-operation-content">
+      <section class="input">
+        <label>Seleccionar moneda:</label>
+        <mat-radio-group formControlName="currency">
+          <mat-radio-button checked value="Soles">Soles</mat-radio-button>
+          <mat-radio-button value="Dólares">Dólares</mat-radio-button>
+        </mat-radio-group>
+      </section>
+
+      <section class="input">
+        <label>Valor del crédito:</label>
+        <mat-form-field>
+          <input matInput placeholder="Ex. 100" formControlName="creditValue" [disabled]="!operationForm.get('currency')?.value">
+          @if (operationForm.get('creditValue')?.errors?.['creditValueTooSmall'] && operationForm.get('currency')?.value === 'Soles') {
+              <mat-error>El valor del crédito debe ser mayor a 50 soles</mat-error>
+            }
+          @if (operationForm.get('creditValue')?.errors?.['creditValueTooSmall'] && operationForm.get('currency')?.value === 'Dólares') {
+              <mat-error>El valor del crédito debe ser mayor a 13 dólares</mat-error>
+            }
+          @if (operationForm.get('creditValue')?.errors?.['creditValueTooLarge'] && operationForm.get('currency')?.value === 'Soles') {
+            <mat-error>El valor del crédito debe ser menor a {{userTotalCredit}} soles</mat-error>
+          }
+          @if (operationForm.get('creditValue')?.errors?.['creditValueTooLarge'] && operationForm.get('currency')?.value === 'Dólares') {
+            <mat-error>El valor del crédito debe ser menor a {{userTotalCredit*0.26}} dólares</mat-error>
+          }
+        </mat-form-field>
+      </section>
+
+      <section class="input">
+        <label>Número de cuotas:</label>
+        <mat-form-field>
+          <input matInput placeholder="Ex. 3" formControlName="numberOfInstallments">
+          @if (operationForm.get('numberOfInstallments')?.errors?.['min']) {
+            <mat-error>El número de cuotas debe ser mayor a 0.</mat-error>
+          }
+          @if (operationForm.get('numberOfInstallments')?.errors?.['max']){
+            <mat-error>El número de cuotas debe ser menor a 10.</mat-error>
+          }
+        </mat-form-field>
+      </section>
+
+
+      <section class="input">
+        <label>Porcentaje de cuota inicial:</label>
+        <mat-form-field>
+          <input matInput placeholder="Ex. 10%" formControlName="initialFeePercentage" [disabled]="operationForm.get('numberOfInstallments')?.value <= 1">
+        </mat-form-field>
+      </section>
+
+
+      <section class="input">
+        <label>Seleccionar tipo de tasa:</label>
+        <mat-radio-group formControlName="rateType">
+          <mat-radio-button class="example-margin"  value="Efectiva">Efectiva</mat-radio-button>
+          <mat-radio-button class="example-margin" checked value="Nominal">Nominal</mat-radio-button>
+        </mat-radio-group>
+      </section>
+
+      <section class="input">
+        <label>Seleccionar capitalización:</label>
+        <mat-form-field>
+          <mat-label>Capitalización</mat-label>
+          <mat-select formControlName="capitalization" [disabled]="operationForm.get('rateType')?.value !== 'Nominal'">
+            @for (capitalization of capitalizationTime; track capitalization) {
+              <mat-option [value]="capitalization">{{capitalization}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </section>
+
+
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card appearance="outlined" class="card-operation">
+    <mat-card-content class="card-operation-content">
+
+      <section class="input">
+        <label>Seleccionar tiempo de la tasa:</label>
+        <mat-form-field>
+          <mat-label>Periodo de Tasa</mat-label>
+          <mat-select formControlName="rateTime">
+            @for (rateTime of rateTimes; track rateTime) {
+              <mat-option [value]="rateTime">{{rateTime}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </section>
+
+
+      <section class="input">
+        <label>Ingresa el valor de la tasa:</label>
+        <mat-form-field>
+          <input matInput placeholder="Ex. 10%" formControlName="rateValue">
+        </mat-form-field>
+      </section>
+
+
+      <section class="input">
+        <label>Selecciona frecuencia de pago:</label>
+        <mat-form-field>
+          <mat-label>Frecuencia de Pago</mat-label>
+          <mat-select formControlName="paymentFrequency">
+            @for (paymentFrequency of paymentFrequencies; track paymentFrequency) {
+              <mat-option [value]="paymentFrequency">{{paymentFrequency}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+      </section>
+
+      <section class="input">
+        <label>Seleccionar plazo de gracia:</label>
+        <mat-form-field>
+          <mat-label>Plazo de Gracia</mat-label>
+          <mat-select formControlName="gracePeriod">
+            @for (gracePeriod of gracePeriods; track gracePeriod) {
+              <mat-option [value]="gracePeriod">{{gracePeriod}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </section>
+
+
+      <section class="input">
+        <label>Numero de periodos de gracia:</label>
+        <mat-form-field>
+          <mat-label>Periodos de Gracia</mat-label>
+          <mat-select formControlName="gracePeriodNumber">
+            @for (gracePeriodNumber of gracePeriodNumbers; track gracePeriodNumber) {
+              <mat-option [value]="gracePeriodNumber">{{gracePeriodNumber}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </section>
+
+      <button [style.backgroundColor]="operationForm.valid ? '#0FD80B' : 'grey'" class="operation-button" type="submit" [disabled]="operationForm.invalid">Calcular</button>
+
+    </mat-card-content>
+  </mat-card>
+</form>

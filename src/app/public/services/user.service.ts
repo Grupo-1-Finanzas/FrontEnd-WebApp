@@ -14,8 +14,11 @@ export class UserService extends BaseService<UserModel>{
     super(http);
     this.resourceEndpoint = 'users';
   }
-
-  // buscar por email y password
+  //buscar por email y password
+  findByEmailAndPassword(email: string, password: string){
+    return this._http.get<any>(`${this.resourcePath()}/?email=${email}&password=${password}`);
+  }
+  // buscar por email
   findByEmail(email: string){
     return this._http.get<any>(`${this.resourcePath()}/?email=${email}`);
   }
@@ -23,4 +26,5 @@ export class UserService extends BaseService<UserModel>{
   findByDni(dni: ɵValue<FormControl<string | null>> | undefined){
     return this._http.get<any>(`${this.resourcePath()}/?dni=${dni}`);
   }
+
 }

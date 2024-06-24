@@ -1,0 +1,30 @@
+.home-card{
+  max-width: 1000px; /* Ajusta el ancho máximo del card según sea necesario */
+  min-width: 800px;
+  margin: 0 auto; /* Centra el card horizontalmente */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+.home-card-content{
+  display: flex; /* Utiliza flexbox para alinear elementos */
+  flex-direction: column; /* Alinea los elementos en columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+  padding: 16px;
+}
+.home-image {
+  max-width: 50%; /* La imagen se ajusta al ancho máximo del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-top: 16px; /* Espacio superior */
+}
+
+.greeting {
+  text-align: center; /* Alinea el texto al centro */
+}
+
+.greeting-text {
+  font-size: 24px;
+}
+
+.credit-info {
+  font-size: 22px;
+  margin-top: 12px; /* Espacio superior */
+}

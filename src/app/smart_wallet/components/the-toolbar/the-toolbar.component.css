@@ -1,0 +1,19 @@
+.mat-toolbar{
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  position: absolute;
+  background-color: #FFFFFF;
+}
+.sections-links{
+  display: flex;
+  gap: 13px;
+  flex-direction: row;
+}
+.sections-links button{
+  font-size: 16px !important;
+}
+.selected {
+  color: #0FD80B !important;
+}

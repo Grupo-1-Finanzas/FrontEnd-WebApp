@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  serverBasePath: "http://localhost:3000",
+  serverBasePath: "https://my-json-server.typicode.com/Grupo-1-Finanzas/backend",
 }

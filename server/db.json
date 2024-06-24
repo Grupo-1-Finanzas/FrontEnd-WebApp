@@ -2,21 +2,23 @@
   "users": [
     {
       "id": 1,
-      "dni": "12345678",
-      "name": "John Doe",
-      "birth": "1980-01-01",
-      "email": "john.doe@example.com",
-      "user": "johndoe",
-      "password": "password1"
-    },
-    {
-      "id": 2,
       "dni": "23456789",
       "name": "Jane Smith",
       "birth": "1985-02-02",
       "email": "jane.smith@example.com",
       "user": "janesmith",
-      "password": "password2"
+      "password": "password2",
+      "totalCredit": 300
+    },
+    {
+      "id": 2,
+      "dni": "12345678",
+      "name": "John Doe",
+      "birth": "1980-01-01",
+      "email": "johnDoe@gmail.com",
+      "user": "johndoe",
+      "password": "password1",
+      "totalCredit": 300
     },
     {
       "id": 3,
@@ -25,7 +27,8 @@
       "birth": "1990-03-03",
       "email": "bob.johnson@example.com",
       "user": "bobjohnson",
-      "password": "password3"
+      "password": "password3",
+      "totalCredit": 300
     },
     {
       "id": 4,
@@ -34,7 +37,8 @@
       "birth": "1995-04-04",
       "email": "alice.williams@example.com",
       "user": "alicewilliams",
-      "password": "password4"
+      "password": "password4",
+      "totalCredit": 300
     },
     {
       "id": 5,
@@ -43,7 +47,70 @@
       "birth": "2000-05-05",
       "email": "charlie.brown@example.com",
       "user": "charliebrown",
-      "password": "password5"
+      "password": "password5",
+      "totalCredit": 300
+    }
+  ],
+  "operations": [
+    {
+      "id": 1,
+      "currency": "Soles",
+      "creditValue": "123",
+      "numberOfInstallments": "1",
+      "rateType": "Efectiva",
+      "rateTime": "Mensual",
+      "rateValue": "2",
+      "paymentFrequency": "Bimestral",
+      "gracePeriod": "Sin P.G.",
+      "userId": "2",
+      "date": "2024-06-23T23:20:28.136Z"
+    },
+    {
+      "id": 2,
+      "currency": "Soles",
+      "creditValue": "123",
+      "numberOfInstallments": "3",
+      "initialFeePercentage": "12",
+      "rateType": "Nominal",
+      "capitalization": "Bimestral",
+      "rateTime": "Mensual",
+      "rateValue": "2",
+      "paymentFrequency": "Bimestral",
+      "gracePeriod": "Sin P.G.",
+      "userId": "2",
+      "date": "2024-06-23T23:21:31.544Z"
+    },
+    {
+      "id": 3,
+      "currency": "Soles",
+      "creditValue": "60",
+      "numberOfInstallments": "2",
+      "initialFeePercentage": "12",
+      "rateType": "Nominal",
+      "capitalization": "Diaria",
+      "rateTime": "Mensual",
+      "rateValue": "22",
+      "paymentFrequency": "Bimestral",
+      "gracePeriod": "Parcial",
+      "gracePeriodNumber": 1,
+      "userId": "1",
+      "date": "2024-06-24T02:05:37.165Z"
+    },
+    {
+      "id": 4,
+      "currency": "Soles",
+      "creditValue": "56",
+      "numberOfInstallments": "3",
+      "initialFeePercentage": "21",
+      "rateType": "Nominal",
+      "capitalization": "Quincenal",
+      "rateTime": "Mensual",
+      "rateValue": "21",
+      "paymentFrequency": "Bimestral",
+      "gracePeriod": "Parcial",
+      "gracePeriodNumber": 2,
+      "userId": "1",
+      "date": "2024-06-24T02:49:13.884Z"
     }
   ]
 }

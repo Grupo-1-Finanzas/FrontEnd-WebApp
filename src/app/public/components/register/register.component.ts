@@ -59,7 +59,10 @@ export class RegisterComponent {
                   formValue.user!,
                   formValue.password!
                 );
-                console.log(newUser);
+                // has un post del nuevo usuario
+                this.userService.post(newUser).subscribe(response => {
+                  console.log('User created');
+                });
               } else {
                 console.log('DNI already exists');
                 this.dniExist=true;

@@ -1,1 +1,14 @@
-<p>the-toolbar works!</p>
+<mat-toolbar class="mat-toolbar">
+  <img src="./assets/images/smart-wallet-icon.png" alt="Logo" width="90px">
+  <div class="sections-links">
+    <button mat-button [routerLink]="['/home', userId]" (click)="selectButton('home')" [ngClass]="{'selected': selectedButton === 'home'}">Inicio</button>
+    <button mat-button [routerLink]="['/operations', userId]" (click)="selectButton('operations')" [ngClass]="{'selected': selectedButton === 'operations'}">Realizar Operación</button>
+    <button mat-button [routerLink]="['/historial', userId]" (click)="selectButton('historial')" [ngClass]="{'selected': selectedButton === 'historial'}">Historial</button>
+  </div>
+  <div>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" >
+      <mat-icon>person</mat-icon>
+    </button>
+  </div>
+
+</mat-toolbar>
